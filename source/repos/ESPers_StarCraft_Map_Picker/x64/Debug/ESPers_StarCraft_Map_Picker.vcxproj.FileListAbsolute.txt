@@ -1,2 +1,0 @@
-C:\Users\KoMoGoon\Documents\GitHub\Mukho\source\repos\ESPers_StarCraft_Map_Picker\x64\Debug\ESPers_StarCraft_Map_Picker.exe
-C:\Users\KoMoGoon\Documents\GitHub\Mukho\source\repos\ESPers_StarCraft_Map_Picker\x64\Debug\ESPers_StarCraft_Map_Picker.pdb
