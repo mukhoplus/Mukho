@@ -1,11 +1,11 @@
 /*
 ... iss Crew
 ... Made by Mukho
-... 2020-06-17 Wen
+... 2020-06-17 Wed
 ... ESPers_StarCraft_Map_Picker
 */
 // 맵 고정이니까 대충 만듬.
-
+#pragma warning(disable : 6385) // 오니..?
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
@@ -14,8 +14,10 @@ using namespace std;
 int main()
 {
 	string map[7] = {"Destination(2)", "Match Point(2)", "Neo Sylphid(3)", "Tau Cross(3)", "Fighting Spirit(4)", "Cirucit Breaker(4)", "Escalade(4)"}; // 맵 목록
-	string picked_map[5];
-	int ban_Player1, ban_Player2;
+	string picked_map[5]; // 골라진 맵을 저장할 배열
+	int order[5]; // 맵 순서를 저장할 배열
+
+	int ban_Player1, ban_Player2; // 밴할 맵의 번호가 저장될 변수
 
 	// 맵 목록 출력
 	cout << "★맵 목록" << endl;
@@ -60,7 +62,6 @@ int main()
 	}
 
 	// 맵 순서 정하기
-	int order[5]{ -1, -1, -1, -1, -1 };
 	srand((unsigned int)time(NULL));
 	for (int i = 0; i < 5; i++)
 	{

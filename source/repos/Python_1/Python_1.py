@@ -1,6 +1,6 @@
 # ... iss Crew
-# ... Made By Mukho
-# ... 2020-06-17 Wen
+# ... Made by Mukho
+# ... 2020-06-17 Wed
 # ... Python Practice
 
 """
