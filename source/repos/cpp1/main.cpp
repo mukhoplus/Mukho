@@ -1,3 +1,9 @@
+/*
+... iss Crew
+... Made by Mukho
+... 2020-06-19 FRI
+... Practice for C++
+*/
 #include <iostream>
 using namespace std;
 
