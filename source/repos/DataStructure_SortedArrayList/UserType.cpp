@@ -2,7 +2,7 @@
 
 UserType::UserType()
 {
-	id = '0';
+	id = "";
 	name = "";
 }
 UserType::~UserType()
@@ -17,7 +17,7 @@ string UserType::GetName()
 	return name;
 }
 
-void UserType::SetId(int id_)
+void UserType::SetId(string id_)
 {
 	id = id_;
 }
@@ -25,7 +25,7 @@ void UserType::SetName(string name_)
 {
 	name = name_;
 }
-void UserType::SetAll(int id_, string name_)
+void UserType::SetAll(string id_, string name_)
 {
 	SetId(id_);
 	SetName(name_);
