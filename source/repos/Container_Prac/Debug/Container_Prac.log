@@ -1,0 +1,6 @@
+﻿  main.cpp
+C:\Users\KoMoGoon\Documents\GitHub\Mukho\source\repos\Container_Prac\main.cpp(60,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\KoMoGoon\Documents\GitHub\Mukho\source\repos\Container_Prac\main.cpp(63,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\KoMoGoon\Documents\GitHub\Mukho\source\repos\Container_Prac\main.cpp(76,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\KoMoGoon\Documents\GitHub\Mukho\source\repos\Container_Prac\main.cpp(83,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  Container_Prac.vcxproj -> C:\Users\KoMoGoon\Documents\GitHub\Mukho\source\repos\Container_Prac\Debug\Container_Prac.exe
