@@ -1,0 +1,144 @@
+#pragma once
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+enum RelationType { LESS, EQUAL, GREATER };
+
+class UserType
+{
+protected:
+	string id;
+	string name;
+public:
+	UserType();
+	~UserType();
+
+	string GetId();
+	string GetName();
+
+	void SetId(string id_);
+	void SetName(string name_);
+	void SetAll(string id_, string name_);
+	void SetIdFromKB();
+	void SetNameFromKB();
+	void SetAllFromKB();
+
+	void PrintId();
+	void PrintName();
+	void PrintAll();
+
+	int ReadDataFromFile(ifstream& fin);
+	int WriteDataFromFile(ofstream& fout);
+
+	RelationType ConpareById(const UserType& data);
+	RelationType ConpareByName(const UserType& data);
+
+	bool operator >(UserType& user);
+	bool operator ==(UserType& user);
+};
+
+UserType::UserType()
+{
+	id = "";
+	name = "";
+}
+UserType::~UserType()
+{}
+
+string UserType::GetId()
+{
+	return id;
+}
+string UserType::GetName()
+{
+	return name;
+}
+
+void UserType::SetId(string id_)
+{
+	id = id_;
+}
+void UserType::SetName(string name_)
+{
+	name = name_;
+}
+void UserType::SetAll(string id_, string name_)
+{
+	SetId(id_);
+	SetName(name_);
+}
+void UserType::SetIdFromKB()
+{
+	cout << "ID : ";
+	cin >> id;
+}
+void UserType::SetNameFromKB()
+{
+	cout << "Name : ";
+	cin >> name;
+}
+void UserType::SetAllFromKB()
+{
+	SetIdFromKB();
+	SetNameFromKB();
+}
+
+void UserType::PrintId()
+{
+	cout << "ID : " << id << endl;
+}
+void UserType::PrintName()
+{
+	cout << "Name : " << name << endl;
+}
+void UserType::PrintAll()
+{
+	PrintId();
+	PrintName();
+}
+
+int UserType::ReadDataFromFile(ifstream& fin)
+{
+	fin >> id;
+	fin >> name;
+
+	return 1;
+}
+int UserType::WriteDataFromFile(ofstream& fout)
+{
+	fout << endl;
+	fout << id << " ";
+	fout << name << " ";
+
+	return 1;
+}
+
+RelationType UserType::ConpareById(const UserType& data)
+{
+	if (this->id > data.id)
+		return GREATER;
+	else if (this->id < data.id)
+		return LESS;
+	else
+		return EQUAL;
+}
+RelationType UserType::ConpareByName(const UserType& data)
+{
+	if (this->name > data.name)
+		return GREATER;
+	else if (this->name < data.name)
+		return LESS;
+	else
+		return EQUAL;
+}
+
+bool UserType::operator >(UserType& user)
+{
+	return this->GetId() > user.GetId();
+}
+bool UserType::operator ==(UserType& user)
+{
+	return this->GetId() == user.GetId();
+}
