@@ -40,6 +40,7 @@ template <typename T>
 DoublyLinkedList<T>::DoublyLinkedList()
 {
 	Head = NULL;
+	Tail = NULL;
 	CurPointer = NULL;
 	length = 0;
 }
