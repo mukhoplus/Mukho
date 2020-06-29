@@ -51,6 +51,7 @@ int partition(int list[], int left, int right)
 
 	do
 	{
+		// low, high를 이용해 pivot과 비교해 작은 값과 큰 값을 pivot 좌우로 분리
 		do
 		{
 			low++; // low는 left + 1부터 증가
@@ -63,12 +64,12 @@ int partition(int list[], int left, int right)
 		} while (high >= left && list[high] > pivot);
 		// list[high]가 pivot보다 크면 high 감소
 		
-		// low와 high가 교차하지 않았으면 list[low]와 list[high] 교환
+		// low와 high가 교차하지 않았으면 list[low]와 list[high]를 교환(실 교환 코드)
 		if (low < high)
 			Swap(list[low], list[high], temp);
 	} while (low < high);
 
-	// low와 high가 교차했으면 반복문 밖에서 list[left]와 list[high]를 교환
+	// low와 high가 교차했으면 반복문 밖에서 list[left]와 list[high]를 교환 // pivot(list[left])을 제 위치(high)로 보내는 과정임
 	Swap(list[left], list[high], temp);
 
 	return high; // pivot 위치 반환
