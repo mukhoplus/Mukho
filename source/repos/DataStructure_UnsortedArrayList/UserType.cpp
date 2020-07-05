@@ -71,7 +71,7 @@ int UserType::WriteDataFromFile(ofstream& fout)
 {
 	fout << endl;
 	fout << id << " ";
-	fout << name << " ";
+	fout << name;
 
 	return 1;
 }

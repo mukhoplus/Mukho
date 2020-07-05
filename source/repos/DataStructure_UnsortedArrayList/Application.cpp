@@ -164,6 +164,7 @@ int Application::ReadDataFromFile()
 
 	string fileName;
 	cout << "파일 이름을 입력하세요 : ";
+	cin.ignore();
 	getline(cin, fileName);
 
 	if (!OpenInFile(fileName))
@@ -184,6 +185,7 @@ int Application::WriteDataFromFile()
 
 	string fileName;
 	cout << "파일 이름을 입력하세요 : ";
+	cin.ignore();
 	getline(cin, fileName);
 
 	if (!OpenOutFile(fileName))
