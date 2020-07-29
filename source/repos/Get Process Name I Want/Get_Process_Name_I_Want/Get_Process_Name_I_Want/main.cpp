@@ -37,7 +37,7 @@ void PrintProcessList()
 
 		while (bProcessFound) // 첫 process가 존재하면
 		{
-			if (!wcscmp(ProcessEntry32.szExeFile, findProcessName)) // 현재 process name이 찾을 process name과 같은가
+			if (!wcscmp(ProcessEntry32.szExeFile, findProcessName) && IsWindowVisible) // 현재 process name이 찾을 process name과 같은가
 			{
 				printf("%ls [%d]\n", ProcessEntry32.szExeFile, ProcessEntry32.th32ProcessID); // 출력 ( Process PID )
 			}
