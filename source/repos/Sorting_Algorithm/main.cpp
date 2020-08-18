@@ -2,7 +2,7 @@
 ... iss Crew
 ... Made By Mukho
 ... 2020-08-18 TUE
-... Sorting Algorithm
+... Sorting and Search Algorithm
 */
 
 #include <iostream>
@@ -84,6 +84,11 @@ void merge(vector<int>& v, int start, int end, int mid); // 합병 함수
 */
 void Quick_Sort(vector<int>& v, int start, int end);
 
+// 선형 검색
+void Linear_Search(vector<int> v, int key);
+// 이진 검색(재귀 사용)
+void Binary_Search(vector<int> v, int start, int end, int key);
+
 int main() {
 	vector<int> select;
 	vector<int> insert;
@@ -143,6 +148,12 @@ int main() {
 		cout << quick[i] << ' ';
 	cout << endl;
 
+	cout << "* linear search 1 : ";
+	Linear_Search(select, 1);
+	cout << "* linear search 0 : ";
+	Linear_Search(select, 0);
+	cout << endl;
+
 	// 정렬
 	Selection_Sort(select);
 	Insertion_Sort(insert);
@@ -174,6 +185,12 @@ int main() {
 	cout << "quick after : ";
 	for (int i = 0; i < quick.size(); i++)
 		cout << quick[i] << ' ';
+	cout << endl;
+
+	cout << "* binary search 4 : ";
+	Binary_Search(quick, 0, quick.size() - 1, 4);
+	cout << "* binary search -1 : ";
+	Binary_Search(quick, 0, quick.size() - 1, -1);
 	cout << endl;
 
 	return 0;
@@ -279,4 +296,31 @@ void Quick_Sort(vector<int>& v, int start, int end) {
 		  quicksort(a, left, pivotNewIndex-1)
 		  quicksort(a, pivotNewIndex+1, right)
 	*/
+}
+
+void Linear_Search(vector<int> v, int key){
+	for (int i = 0; i < v.size(); i++) {
+		if (v[i] == key) {
+			cout << key << " 값은 " << i << " index에 존재한다." << endl;
+			break;
+		}
+		if (i == v.size() - 1)
+			cout << key << " 값을 찾을 수 없다." << endl;
+	}
+}
+void Binary_Search(vector<int> v, int start, int end, int key) {
+	if (start > end) {
+		cout << key << " 값을 찾을 수 없다." << endl;
+		return;
+	}
+	
+	int mid = (start + end) / 2;
+	if (v[mid] == key) {
+		cout << key << " 값은 " << mid << " index에 존재한다." << endl;
+		return;
+	}
+	else if (v[mid] < key)
+		Binary_Search(v, mid + 1, end, key);
+	else
+		Binary_Search(v, start, mid - 1, key);
 }
