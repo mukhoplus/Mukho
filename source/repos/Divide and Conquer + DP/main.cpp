@@ -110,10 +110,22 @@
 					return m[n]
 */
 
-// 피보나치 수열 DP로 구하기
+// 피보나치 수열 DP(재귀, 반복문)으로 구하기
 #include <iostream>
 using namespace std;
 
+// DP_재귀
+int Fib(int n) {
+	int* data;
+	data = new int[n + 1];
+
+	data[0] = 0;
+	data[1] = 1;
+
+	if (data[n] > 0 || (n == 0)) return data[n];
+	return Fib(n - 1) + Fib(n - 2);
+}
+// DP_반복문
 int fib(int n) {
 	int* data;
 	data = new int[n + 1];
@@ -138,7 +150,10 @@ int main() {
 		cin >> num;
 		if (num < 0) break;
 		else
-			cout << fib(num) << "\n";
+			cout << fib(num) << "\n"; // 반복문
+			cout << Fib(num) << "\n"; // DP
+			// 반복문 O(n), DP O(n). 반복문이 더 빠르다
+			// 재귀적 방식이 더 직관적이다.
 	}
 
 	return 0;
