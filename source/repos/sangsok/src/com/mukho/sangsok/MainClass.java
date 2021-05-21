@@ -11,4 +11,7 @@ public class MainClass {
 	public void b() {
 		System.out.println("B");
 	}
+	public void c() {
+		System.out.println("C");
+	}
 }
