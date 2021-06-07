@@ -152,18 +152,31 @@ class MyDerivedMatrix(MyMatrix):
     def getMemberMatrix(self):
         return self.lst
 
-myMaxtrixObj = MyMatrix()
-myMaxtrixObj = MyMatrix()
-myMaxtrixObj = MyMatrix()
+try:
+    FLAG = True
+    myMaxtrixObjX = MyMatrix(3)
+    myMaxtrixObjY = MyMatrix(3)
+    myMaxtrixObjZ = MyMatrix(5)
 
-ANSWER_3 = [[3, 3, 3], [3, 9, 3], [3, 3, 3]]
-if myMaxtrixObj.saveFileMatrix(ANSWER_3) != 1:
-    FLAG = False
+    def myFn(num):
+        return num * -10
 
-ANSWER_5 = [[5, 5, 5, 5, 5], [5, 25, 25, 25, 5], [5, 25, 125, 25, 5], [5, 25, 25, 25, 5], [5, 5, 5, 5, 5]]
-if myMaxtrixObj.saveFileMatrix(ANSWER_5) != 2:
-    FLAG = False
+    myMaxtrixObjY.applyGivenFunction(myFn)
 
-ANSWER_7 = [[7, 7, 7, 7, 7, 7, 7], [7, 49, 49, 49, 49, 49, 7], [7, 49, 343, 343, 343, 49, 7], [7, 49, 343, 2401, 343, 49, 7], [7, 49, 343, 343, 343, 49, 7], [7, 49, 49, 49, 49, 49, 7], [7, 7, 7, 7, 7, 7, 7]]
-if myMaxtrixObj.saveFileMatrix(ANSWER_7) != 3:
-    FLAG = False
+    myNewMaxrix = myMaxtrixObjX + myMaxtrixObjY
+    ANSWER_NEW = [[-27, -27, -27], [-27, -81, -27], [-27, -27, -27]]
+
+    if myNewMaxrix != ANSWER_NEW:
+        FLAG = False
+
+    myNewMaxrix = myMaxtrixObjX + myMaxtrixObjZ
+    
+    if myNewMaxrix != -1:
+        FLAG = False
+
+    if FLAG == True:
+        print("[PROBLEM-07] CORRECT (+5)")
+    else:
+        print("[PROBLEM-07] IN-CORRECT")
+except:
+    print("[PROBLEM-07] FAILED")
