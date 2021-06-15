@@ -61,9 +61,30 @@ void Application::Insert() {
 	cin >> age;
 
 	User temp(name, age);
-	UserList.push_back(temp);
-	UserList.sort(); // iter를 통해 순서에 맞게 삽입하는 과정을 거치면 속도가 빨라질 것. 단, 다른 함수의 iterator를 
-	cout << "Insert Complete!" << '\n';
+
+	if(UserList.empty())
+		UserList.push_back(temp);
+	else {
+		bool check = true;
+		ResetIterator();
+		while (iter != UserList.end()) {
+			if ((*iter).CompareUser(temp) == EQUAL) {
+				check = false;
+				break;
+			}
+			else
+				++iter;
+		}
+		if (check) {
+			UserList.push_back(temp);
+			cout << "Insert Complete!" << '\n';
+		}
+		else
+			cout << "Data Duplication!" << '\n';
+		
+	}
+
+	UserList.sort(); // iter를 통해 순서에 맞게 삽입하는 과정을 거치면 속도가 빨라질 것.
 }
 
 void Application::Delete() {
@@ -103,6 +124,7 @@ void Application::Update() {
 		string name;
 		int age;
 		bool check = false;
+		bool fnd = false;
 
 		cout << "Enter the name: ";
 		cin >> name;
@@ -118,16 +140,38 @@ void Application::Update() {
 				cout << "Enter the age: ";
 				cin >> age;
 
-				(*iter).setName(name);
-				(*iter).setAge(age);
-				check = true;
-				cout << "Update Complete!" << '\n';
-				break;
+				// 중복 데이터 찾기
+				User t(name, age);
+				list<User>::iterator it;
+				it = UserList.begin();
+				while (it != UserList.end()) {
+					if ((*it).CompareUser(t) == EQUAL) {
+						// 중복 데이터일 경우에만 출력
+						cout << "Data Duplication!" << '\n';
+						fnd = true;
+						break;
+					}
+					else
+						++it;
+				}
+
+				// 중복 데이터가 아니면 Update
+				if (!fnd) {
+					(*iter).setName(name);
+					(*iter).setAge(age);
+					check = true;
+					cout << "Update Complete!" << '\n';
+					break;
+				}
+				else
+					break;
 			}
 			else
 				++iter;
 		}
-		if (!check)
+
+		// 없는 데이터 입력시에만 출력
+		if (!check && !fnd)
 			cout << "Update Incomplete!" << '\n';
 		else
 			UserList.sort();
